@@ -1,0 +1,362 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  background-color: rgb(235, 226, 226);
+}
+
+header {
+  background: white;  
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+/* Logo Styling */
+.logo img {
+    display: flex;
+  align-items: center;
+  height: 50px;         
+  width: auto;          /* keep aspect ratio */
+  border-radius: 6px;   /* optional: rounded corners */
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo left, menu right */
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;             /* for mobile menu positioning */
+}
+
+/* Nav links for desktop */
+.nav-links {
+  display: flex;                  /* horizontal layout */
+  gap: 15px;
+  list-style: none;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font: bold;
+}
+
+.nav-links li a {
+  color: white;                   /* link color */
+  text-decoration: none;
+}
+
+/* Hamburger menu (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 200;
+}
+
+/* Mobile styling */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;               /* show hamburger */
+  }
+
+  .nav-links {
+    display: none;                /* hide menu initially */
+    flex-direction: column;       /* vertical layout */
+    gap: 10px;
+    background: white;
+    position: absolute;
+    top: 60px;                    /* below header */
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 6px;
+    z-index: 100;
+  }
+
+  .nav-links.active {
+    display: flex;                /* show when hamburger clicked */
+  }
+
+  .nav-links li a {
+    color: white;                 /* ensure links visible on mobile menu */
+  }
+}
+
+/* Optional: Remove active class on resize for desktop */
+@media screen and (min-width: 769px) {
+  .nav-links {
+    display: flex;                /* always show horizontally on desktop */
+  }
+}
+:root {
+  --brand: #7F1C40;       /* theme maroon */
+  --brand-hover: #2e0715; /* hover orange */
+  --light-bg: #f9f9f9;
+  --text-dark: #333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: var(--text-dark);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in animation for body */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--brand);
+}
+
+.navbar .logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--brand-hover);
+}
+
+
+.contact-page {
+  padding: 60px 20px;
+  background: var(--light-bg);
+  text-align: center;
+  animation: slideUp 1.2s ease;
+}
+
+.contact-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--brand);
+  animation: fadeIn 2s ease;
+}
+
+.contact-page p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #555;
+  animation: fadeIn 2.5s ease;
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Layout for form + info */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: slideInLeft 1.5s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid var(--brand);
+  box-shadow: 0 0 6px rgba(127, 28, 64, 0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.contact-form button {
+  padding: 14px;
+  background: var(--brand);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background: var(--brand-hover);
+  transform: scale(1.08);
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+  animation: slideInRight 1.5s ease;
+}
+
+.contact-info h3 {
+  color: var(--brand);
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: var(--brand);
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--brand-hover);
+  transform: scale(1.2);
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+/* Social media icons */
+.social-icons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #7F1C40;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #444;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+footer {
+  background: #1a2541;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #871f41;
+}
+
+.footer-logo {
+  width: 80px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.brand h2 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  color: #fff;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* Social media icons */
+.social-icons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #444;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
